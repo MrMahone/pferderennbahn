@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import { PlayerCreator } from './player-creater';
 import '../App.css';
-import FormCheckInput from 'react-bootstrap/esm/FormCheckInput';
 
 export enum Dice {
   "SIX" = 6,
@@ -21,16 +21,8 @@ export interface SetupBoxProps {
 
 export const SetupBox=(props: SetupBoxProps) => {
     const {players, onAddPlayer} = props;
-    const [playerNameInput, setPlayerNameInput] = useState<string>("Player");
-    const [playerDiceInput, setPlayerDiceInput] = useState<Dice | undefined>(Dice.SIX);
 
-    /**
-     * Can only get called if the inputs arent undefined.
-     */
-    const handleCreatePlayer = ():Player => {
-      console.log(`Created a new Player: "${playerNameInput}" he chose the "${playerDiceInput}" Dice`);
-        return {name: playerNameInput, dice:playerDiceInput!};
-    }
+    
 
     /**
      * Some cards, each represents a player.
@@ -45,10 +37,7 @@ export const SetupBox=(props: SetupBoxProps) => {
   return (
     <div>
     <h1>Players</h1>
-    
-    <button onClick={handleCreatePlayer} disabled={playerDiceInput === undefined}>
-          Add Player
-        </button>
+      <PlayerCreator onCreatPlayer={onAddPlayer}></PlayerCreator>
       <div className="card">
       {playerCards}  
       </div>
