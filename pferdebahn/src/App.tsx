@@ -1,18 +1,24 @@
 import { useState } from 'react'
-import { Player, SetupBox } from './components'
-import './App.css'
+import { Player, Setup } from './components'
+import Navbar from 'react-bootstrap/Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 function App() {
   const [players, setPlayers] = useState<Player[]>([]);
 
   const handleAddPlayer = (newPlayer: Player) => {
-    console.log(`The container received the ${newPlayer.name} player.`, newPlayer);
     setPlayers([...players, newPlayer]);
+  }
+
+  const handleRemovePlayer = (playerToRemove: Player) => {
+    setPlayers([...players.filter((player) => player.name !== playerToRemove.name)])
   }
 
   return (
     <>
-      <SetupBox players={players} onAddPlayer={handleAddPlayer}/>
+      <Navbar bg="primary" data-bs-theme="light"><Navbar.Brand href="#home">Die Pferderennbahn</Navbar.Brand></Navbar>
+      <Setup players={players} onAddPlayer={handleAddPlayer} onRemovePlayer={handleRemovePlayer}/>
     </>
   )
 }

@@ -1,26 +1,20 @@
-import { useState } from 'react';
-import { PlayerCreator } from './player-creater';
-import '../App.css';
-
-export enum Dice {
-  "SIX" = 6,
-  "TEN" = 10,
-  "TWELVE" = 12,
-  "TWENTY" = 20,
-}
+import { PlayerCreator } from '../player-creater';
+import { Button } from 'react-bootstrap';
+import { DiceValue } from '../../enums';
 
 export type Player  = {
     name: string,
-    dice: Dice
+    dice: DiceValue
 }
 
 export interface SetupBoxProps {
     players: Player[];
     onAddPlayer: (newPlayer: Player) => void;
+    onRemovePlayer: (playerToRemove: Player) => void;
 }
 
-export const SetupBox=(props: SetupBoxProps) => {
-    const {players, onAddPlayer} = props;
+export const Setup = (props: SetupBoxProps) => {
+    const {players, onAddPlayer, onRemovePlayer} = props;
 
     
 
@@ -31,6 +25,7 @@ export const SetupBox=(props: SetupBoxProps) => {
     <div className='card'>
     <p>    {player.name}</p>
     <p>{player.dice}</p>
+    <Button onClick={() => onRemovePlayer(player)}>X</Button>
     </div>
     )
 
