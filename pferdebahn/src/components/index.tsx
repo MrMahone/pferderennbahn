@@ -1,1 +1,1 @@
-export * from './setup-box';
+export * from "./setup-box";
