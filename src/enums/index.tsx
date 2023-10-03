@@ -1,1 +1,1 @@
-export * from './dicevalue';
+export * from "./dicevalue";
