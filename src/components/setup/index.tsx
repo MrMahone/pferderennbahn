@@ -1,6 +1,6 @@
-import { PlayerCreator } from '../player-creater';
-import { Button } from 'react-bootstrap';
-import { DiceValue } from '../../enums';
+import { PlayerCreator } from "../player-creater";
+import { Button } from "react-bootstrap";
+import { DiceValue } from "../../enums";
 
 export type Player = {
     name: string;
@@ -8,12 +8,13 @@ export type Player = {
 };
 
 export interface SetupBoxProps {
-    players: Player[];
-    onAddPlayer: (newPlayer: Player) => void;
-    onRemovePlayer: (playerToRemove: Player) => void;
+  players: Player[];
+  onAddPlayer: (newPlayer: Player) => void;
+  onRemovePlayer: (playerToRemove: Player) => void;
 }
 
 export const Setup = (props: SetupBoxProps) => {
+<<<<<<< HEAD
     const { players, onAddPlayer, onRemovePlayer } = props;
 
     /**
@@ -35,4 +36,26 @@ export const Setup = (props: SetupBoxProps) => {
             <div className="card">{playerCards}</div>
         </div>
     );
+=======
+  const { players, onAddPlayer, onRemovePlayer } = props;
+
+  /**
+   * Some cards, each represents a player.
+   */
+  const playerCards = players.map((player) => (
+    <div className="card">
+      <p> {player.name}</p>
+      <p>{player.dice}</p>
+      <Button onClick={() => onRemovePlayer(player)}>X</Button>
+    </div>
+  ));
+
+  return (
+    <div>
+      <h1>Players</h1>
+      <PlayerCreator onCreatPlayer={onAddPlayer}></PlayerCreator>
+      <div className="card">{playerCards}</div>
+    </div>
+  );
+>>>>>>> 7fe9b8549226fd1d442ef1c26a93956e5d0cc08a
 };
