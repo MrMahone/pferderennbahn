@@ -1,0 +1,27 @@
+.player-card {
+    position: relative;
+    display: flex;
+    margin: 4px;
+    border: 2px solid lightgray;
+    border-radius: 6px;
+    justify-content: center;
+    align-content: center;
+
+    .player-data{
+        padding-top: 8px;
+        .player-name-text{
+            font-size: larger;
+            font-weight: 600;
+        }
+    }
+
+    .remove-player-button {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 1px;
+        padding: 5px;
+    }
+}
+

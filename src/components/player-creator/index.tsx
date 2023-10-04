@@ -33,7 +33,7 @@ export const PlayerCreator = (props: PlayerCreatorProps) => {
                 aria-describedby="nameInputHelpBlock"
             />
             <Form.Text id="nameInputHelpBlock" muted>
-                Enter your character name and pick the dice.
+                Enter your character name and pick a dice.
             </Form.Text>
         </section>
     );
