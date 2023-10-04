@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Player } from '..';
 import { Dices } from '../../constants';
 import { Button, Card, CardBody } from 'react-bootstrap';
-import { XLg } from 'react-bootstrap-icons';
 
 import './player-creator.css';
 
