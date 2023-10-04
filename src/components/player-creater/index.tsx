@@ -14,7 +14,7 @@ export const PlayerCreator = (props: PlayerCreatorProps) => {
     const [playerNameInput, setPlayerNameInput] = useState<string>('');
 
     const nameInput = (
-        <>
+        <section key="name-input">
             <Form.Label htmlFor="nameInput">User Name</Form.Label>
             <Form.Control
                 type="text"
@@ -26,11 +26,11 @@ export const PlayerCreator = (props: PlayerCreatorProps) => {
             <Form.Text id="nameInputHelpBlock" muted>
                 Enter your character name.
             </Form.Text>
-        </>
+        </section>
     );
 
     const diceDropDown = (
-        <Dropdown>
+        <Dropdown key="dice-drop-down">
             <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Choose Dice
             </Dropdown.Toggle>

@@ -14,16 +14,14 @@ export interface SetupBoxProps {
 }
 
 export const Setup = (props: SetupBoxProps) => {
-<<<<<<< HEAD
     const { players, onAddPlayer, onRemovePlayer } = props;
 
     /**
      * Some cards, each represents a player.
      */
     const playerCards = players.map((player) => (
-        <div className="card">
-            <p> {player.name}</p>
-
+        <div className="card" key={`player-card-${player.name}`}>
+            <p>{player.name}</p>
             <p>{player.dice}</p>
             <Button onClick={() => onRemovePlayer(player)}>X</Button>
         </div>
@@ -31,31 +29,9 @@ export const Setup = (props: SetupBoxProps) => {
 
     return (
         <div>
-            <h1>Players</h1>
+            <h2>Players</h2>
             <PlayerCreator onCreatPlayer={onAddPlayer}></PlayerCreator>
             <div className="card">{playerCards}</div>
         </div>
     );
-=======
-  const { players, onAddPlayer, onRemovePlayer } = props;
-
-  /**
-   * Some cards, each represents a player.
-   */
-  const playerCards = players.map((player) => (
-    <div className="card">
-      <p> {player.name}</p>
-      <p>{player.dice}</p>
-      <Button onClick={() => onRemovePlayer(player)}>X</Button>
-    </div>
-  ));
-
-  return (
-    <div>
-      <h1>Players</h1>
-      <PlayerCreator onCreatPlayer={onAddPlayer}></PlayerCreator>
-      <div className="card">{playerCards}</div>
-    </div>
-  );
->>>>>>> 7fe9b8549226fd1d442ef1c26a93956e5d0cc08a
 };
