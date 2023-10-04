@@ -3,15 +3,18 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { useState } from 'react';
 import { Player } from '..';
 import { Dices } from '../../constants';
-import { Card, CardBody, CardFooter, CardHeader } from 'react-bootstrap';
+import { Button, Card, CardBody } from 'react-bootstrap';
+import { XLg } from 'react-bootstrap-icons';
+
 import './player-creator.css';
 
 export interface PlayerCreatorProps {
     onCreatPlayer: (newPlayer: Player) => void;
+    onHide: () => void;
 }
 
 export const PlayerCreator = (props: PlayerCreatorProps) => {
-    const { onCreatPlayer } = props;
+    const { onCreatPlayer, onHide } = props;
 
     const [playerNameInput, setPlayerNameInput] = useState<string>('');
 
@@ -60,12 +63,13 @@ export const PlayerCreator = (props: PlayerCreatorProps) => {
     return (
         <Card>
             <Card.Header>
-                <h2>Add Players</h2>
+                <h2>Add players</h2>
             </Card.Header>
             <CardBody>
                 {nameInput}
                 {diceDropDown}
             </CardBody>
+            <Button variant="outline-primary" onClick={onHide}>Hide player creator</Button>
         </Card>
             
     );

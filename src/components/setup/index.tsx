@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { PlayerCreator } from "../player-creator";
-import { XLg } from 'react-bootstrap-icons';
+import { XLg, PersonAdd } from 'react-bootstrap-icons';
 import { DiceValue } from "../../enums";
 import './setup.css';
+import { Button } from "react-bootstrap";
 
 export type Player = {
     name: string;
@@ -16,6 +18,7 @@ export interface SetupBoxProps {
 
 export const Setup = (props: SetupBoxProps) => {
     const { players, onAddPlayer, onRemovePlayer } = props;
+    const [hideCreator, setHideCreator] = useState(false);
 
     /**
      * Some cards, each represents a player.
@@ -29,11 +32,13 @@ export const Setup = (props: SetupBoxProps) => {
             <figure className="remove-player-button" onClick={() => onRemovePlayer(player)}><XLg width={24} height={24}/></figure>
         </div>
     ));
+    
+    const showCreator = (<Button variant="outline-primary" onClick={() =>setHideCreator(false)}>Add more Players <PersonAdd width={24} height={24} className="person-add-icon"/></Button>)
 
     return (
-        <div>
-            <PlayerCreator onCreatPlayer={onAddPlayer}></PlayerCreator>
-            <div className="card">{playerCards}</div>
+        <div className="card">
+            {hideCreator ? showCreator : <PlayerCreator onCreatPlayer={onAddPlayer} onHide={() => setHideCreator(true)} ></PlayerCreator>}
+            {playerCards}
         </div>
     );
 };
