@@ -1,2 +1,2 @@
 export * from './setup';
-export * from './player-creater';
+export * from './player-creator';

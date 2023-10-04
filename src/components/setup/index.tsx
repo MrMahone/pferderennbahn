@@ -1,4 +1,4 @@
-import { PlayerCreator } from "../player-creater";
+import { PlayerCreator } from "../player-creator";
 import { Button } from "react-bootstrap";
 import { DiceValue } from "../../enums";
 
@@ -21,15 +21,14 @@ export const Setup = (props: SetupBoxProps) => {
      */
     const playerCards = players.map((player) => (
         <div className="card" key={`player-card-${player.name}`}>
-            <p>{player.name}</p>
-            <p>{player.dice}</p>
+            <p key={`player-card-name${player.name}`}>{player.name}</p>
+            <p key={`player-card-dice${player.name}`}>{player.dice}</p>
             <Button onClick={() => onRemovePlayer(player)}>X</Button>
         </div>
     ));
 
     return (
         <div>
-            <h2>Players</h2>
             <PlayerCreator onCreatPlayer={onAddPlayer}></PlayerCreator>
             <div className="card">{playerCards}</div>
         </div>
