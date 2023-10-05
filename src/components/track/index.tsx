@@ -2,6 +2,7 @@ import { Player } from '..';
 import { Card, CardBody, Col, Container, Row } from 'react-bootstrap';
 
 import './track.css';
+import { Lane } from './lane';
 
 export interface TrackProps {
     players: Player[];
@@ -17,7 +18,7 @@ export const Track = (props: TrackProps) => {
             </Card.Header>
             <CardBody>
                 <Container>
-                    <Row>{players.map((player) => <Col><Card>{player.name}</Card></Col>)}</Row>
+                    {players.map((player) => <Row><Card><Lane dice={player.dice} /></Card></Row>)}
                 </Container>
             </CardBody>
             </Card>
