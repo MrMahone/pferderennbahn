@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Player, Setup, Track } from './components';
-import {Row,Col, Container, Navbar} from 'react-bootstrap';
+import { Row, Col, Container, Navbar } from 'react-bootstrap';
 
 import './App.css';
 
@@ -32,7 +32,7 @@ function App() {
                         />
                     </Col>
                     <Col sm={8}>
-                        <Track players={players}/>
+                        <Track players={players} />
                     </Col>
                 </Row>
             </Container>

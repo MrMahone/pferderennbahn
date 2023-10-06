@@ -19,12 +19,12 @@ export const PlayerCreator = (props: PlayerCreatorProps) => {
 
     /**
      * Handler function to create a new player and reset the name input field.
-     * @param newPlayer 
+     * @param newPlayer
      */
     const handleCreatePlayer = (newPlayer: Player) => {
         onCreatPlayer(newPlayer);
         setPlayerNameInput('');
-    }
+    };
 
     const nameInput = (
         <section key="name-input">
@@ -41,13 +41,18 @@ export const PlayerCreator = (props: PlayerCreatorProps) => {
     );
 
     const diceDropDown = (
-        <Dropdown key="dice-drop-down" className='dice-drop-down'>
-            <Dropdown.Toggle variant="success" id="dropdown-basic" disabled={playerNameInput===""}>
+        <Dropdown key="dice-drop-down" className="dice-drop-down">
+            <Dropdown.Toggle
+                variant="success"
+                id="dropdown-basic"
+                disabled={playerNameInput === ''}
+            >
                 Pick Dice
             </Dropdown.Toggle>
             <Dropdown.Menu>
                 {Dices.map((dice) => (
-                    <Dropdown.Item key={`dice-drop-down-key-${dice}`}
+                    <Dropdown.Item
+                        key={`dice-drop-down-key-${dice}`}
                         onClick={() =>
                             handleCreatePlayer({ name: playerNameInput, dice })
                         }
@@ -68,8 +73,9 @@ export const PlayerCreator = (props: PlayerCreatorProps) => {
                 {nameInput}
                 {diceDropDown}
             </CardBody>
-            <Button variant="outline-primary" onClick={onHide}>Hide player creator</Button>
+            <Button variant="outline-primary" onClick={onHide}>
+                Hide player creator
+            </Button>
         </Card>
-            
     );
 };

@@ -18,10 +18,15 @@ export const Track = (props: TrackProps) => {
             </Card.Header>
             <CardBody>
                 <Container>
-                    {players.map((player) => <Row><Card><Lane dice={player.dice} /></Card></Row>)}
+                    {players.map((player) => (
+                        <Row>
+                            <Card>
+                                <Lane dice={player.dice} />
+                            </Card>
+                        </Row>
+                    ))}
                 </Container>
             </CardBody>
-            </Card>
-            
+        </Card>
     );
 };
