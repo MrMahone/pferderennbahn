@@ -18,6 +18,7 @@ export interface SetupBoxProps {
 
 export const Setup = (props: SetupBoxProps) => {
     const { players, onAddPlayer, onRemovePlayer } = props;
+    //Todo: Move into App
     const [hideCreator, setHideCreator] = useState(false);
 
     /**
@@ -33,6 +34,7 @@ export const Setup = (props: SetupBoxProps) => {
         </div>
     ));
     
+    //Todo: move to track
     const showCreator = (<Button variant="outline-primary" onClick={() =>setHideCreator(false)}>Add more Players <PersonAdd width={24} height={24} className="person-add-icon"/></Button>)
 
     return (

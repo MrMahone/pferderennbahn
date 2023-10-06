@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import { Player, Setup, Track } from './components';
-import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import {Row,Col, Container, Navbar} from 'react-bootstrap';
+
 import './App.css';
 
 function App() {
