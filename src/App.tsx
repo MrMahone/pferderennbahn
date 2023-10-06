@@ -1,10 +1,7 @@
 import { useState } from 'react';
-import { Player, Setup } from './components';
-import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Player, Setup, Track } from './components';
+import { Row, Col, Container, Navbar } from 'react-bootstrap';
+
 import './App.css';
 
 function App() {
@@ -34,7 +31,9 @@ function App() {
                             onRemovePlayer={handleRemovePlayer}
                         />
                     </Col>
-                    <Col sm={8}>Board</Col>
+                    <Col sm={8}>
+                        <Track players={players} />
+                    </Col>
                 </Row>
             </Container>
         </>
