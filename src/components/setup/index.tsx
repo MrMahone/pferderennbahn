@@ -20,6 +20,7 @@ export const Setup = (props: SetupBoxProps) => {
     const { players, onAddPlayer, onRemovePlayer } = props;
     //Todo: Move into App
     const [hideCreator, setHideCreator] = useState(false);
+    
 
     /**
      * Some cards, each represents a player.

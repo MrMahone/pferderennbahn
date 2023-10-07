@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Player, Setup, Track } from './components';
+import { Counter, Player, Setup, Track } from './components';
 import { Row, Col, Container, Navbar } from 'react-bootstrap';
 
 import './App.css';
@@ -25,6 +25,7 @@ function App() {
             <Container>
                 <Row>
                     <Col sm={4}>
+                        <Counter />
                         <Setup
                             players={players}
                             onAddPlayer={handleAddPlayer}
