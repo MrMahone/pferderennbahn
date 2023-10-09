@@ -20,7 +20,7 @@ function App() {
     return (
         <>
             <Navbar bg="primary" data-bs-theme="light">
-                <Navbar.Brand href="#home">Die Pferderennbahn</Navbar.Brand>
+                <Navbar.Brand href="#home">Das Schweinerennen</Navbar.Brand>
             </Navbar>
             <Container>
                 <Row>
