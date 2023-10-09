@@ -7,10 +7,11 @@ import { UPPER_DISTANCE_BOUNDARY } from '../../constants/distance';
 
 export interface LaneProps {
     dice: DiceValue;
+    progress: number;
 }
 
 export const Lane = (props: LaneProps) => {
-    const { dice } = props;
+    const { dice, progress } = props;
 
     /**
      * The amount of laps or in the context of a dice game. The total amount of available dices gets

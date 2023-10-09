@@ -3,6 +3,7 @@ import { Card, CardBody, Col, Container, Row } from 'react-bootstrap';
 
 import './track.css';
 import { Lane } from './lane';
+import { DiceValue } from '../../enums';
 
 export interface TrackProps {
     players: Player[];
@@ -21,7 +22,7 @@ export const Track = (props: TrackProps) => {
                     {players.map((player) => (
                         <Row>
                             <Card>
-                                <Lane dice={player.dice} />
+                                <Lane progress={10} dice={DiceValue.SIX} />
                             </Card>
                         </Row>
                     ))}

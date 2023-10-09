@@ -24,7 +24,7 @@ function App() {
             </Navbar>
             <Container>
                 <Row>
-                    <Col sm={4}>
+                    <Col className="setup-row" sm={4}>
                         <Setup
                             players={players}
                             onAddPlayer={handleAddPlayer}
