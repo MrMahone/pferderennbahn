@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { PlayerCreator } from '../player-creator';
+import { Button} from 'react-bootstrap';
 import { XLg, PersonAdd } from 'react-bootstrap-icons';
-import { SnackValue } from '../../enums';
+
+import { SnackValue } from '../../enums'; 
+import { PlayerCreator } from '../player-creator';
+
 import './setup.css';
-import { Button } from 'react-bootstrap';
 
 export type Pig = {
     snacks: SnackValue; 

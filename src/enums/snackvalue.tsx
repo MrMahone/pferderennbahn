@@ -1,3 +1,5 @@
+// Credits amount / Dice value 
+
 export enum SnackValue {
     'BLUEBERRY' = 10,
     'CARROT' = 6,
