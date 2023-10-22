@@ -55,7 +55,10 @@ export const PlayerCreator = (props: PlayerCreatorProps) => {
                     <Dropdown.Item
                         key={`dice-drop-down-key-${snack}`}
                         onClick={() =>
-                            handleCreatePlayer({ name: playerNameInput, pig:{snacks:snack}})
+                            handleCreatePlayer({
+                                name: playerNameInput,
+                                pig: { snacks: snack }
+                            })
                         }
                     >
                         {SnackValue[snack]}

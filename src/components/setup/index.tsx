@@ -1,19 +1,19 @@
 import { useState } from 'react';
-import { Button} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { XLg, PersonAdd } from 'react-bootstrap-icons';
 
-import { SnackValue } from '../../enums'; 
+import { SnackValue } from '../../enums';
 import { PlayerCreator } from '../player-creator';
 
 import './setup.css';
 
 export type Pig = {
-    snacks: SnackValue; 
-}
+    snacks: SnackValue;
+};
 
 export type Player = {
-    name: string; 
-    pig: Pig; 
+    name: string;
+    pig: Pig;
 };
 
 export interface SetupBoxProps {
