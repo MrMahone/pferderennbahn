@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Player, Setup, Track } from './components';
 import { Row, Col, Container, Navbar } from 'react-bootstrap';
+
+import { Player, Setup, Track, Market } from './components';
 
 import './App.css';
 
@@ -20,11 +21,11 @@ function App() {
     return (
         <>
             <Navbar bg="primary" data-bs-theme="light">
-                <Navbar.Brand href="#home">Die Pferderennbahn</Navbar.Brand>
+                <Navbar.Brand href="#home">Das Schweinerennen</Navbar.Brand>
             </Navbar>
             <Container>
                 <Row>
-                    <Col sm={4}>
+                    <Col className="setup-row" sm={4}>
                         <Setup
                             players={players}
                             onAddPlayer={handleAddPlayer}
@@ -32,7 +33,7 @@ function App() {
                         />
                     </Col>
                     <Col sm={8}>
-                        <Track players={players} />
+                        <Market />
                     </Col>
                 </Row>
             </Container>

@@ -2,10 +2,11 @@ import Form from 'react-bootstrap/Form';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useState } from 'react';
 import { Player } from '..';
-import { Dices } from '../../constants';
+import { Dices, Snacks } from '../../constants';
 import { Button, Card, CardBody } from 'react-bootstrap';
 
 import './player-creator.css';
+import { SnackValue } from '../../enums';
 
 export interface PlayerCreatorProps {
     onCreatPlayer: (newPlayer: Player) => void;
@@ -47,17 +48,17 @@ export const PlayerCreator = (props: PlayerCreatorProps) => {
                 id="dropdown-basic"
                 disabled={playerNameInput === ''}
             >
-                Pick Dice
+                Pick Snacks
             </Dropdown.Toggle>
             <Dropdown.Menu>
-                {Dices.map((dice) => (
+                {Snacks.map((snack: SnackValue) => (
                     <Dropdown.Item
-                        key={`dice-drop-down-key-${dice}`}
+                        key={`dice-drop-down-key-${snack}`}
                         onClick={() =>
-                            handleCreatePlayer({ name: playerNameInput, dice })
+                            handleCreatePlayer({ name: playerNameInput, pig:{snacks:snack}})
                         }
                     >
-                        {dice}
+                        {SnackValue[snack]}
                     </Dropdown.Item>
                 ))}
             </Dropdown.Menu>
