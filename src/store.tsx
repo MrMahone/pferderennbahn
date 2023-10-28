@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './reducer/player';
+import playerReducer from './reducer/player';
+import sceneReducer from './reducer/scene';
 
 export default configureStore({
   reducer: {
-    player: counterReducer
+    player: playerReducer,
+    scene: sceneReducer
   },
 })

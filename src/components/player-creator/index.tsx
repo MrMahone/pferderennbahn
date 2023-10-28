@@ -1,11 +1,10 @@
 import Form from 'react-bootstrap/Form';
-import Dropdown from 'react-bootstrap/Dropdown';
 import { useState } from 'react';
 import { Player } from '..';
-import { Dices } from '../../constants';
 import { Button, Card, CardBody } from 'react-bootstrap';
 
 import './player-creator.css';
+import { PlusCircle } from 'react-bootstrap-icons';
 
 export interface PlayerCreatorProps {
     onCreatPlayer: (newPlayer: Player) => void;
@@ -27,41 +26,20 @@ export const PlayerCreator = (props: PlayerCreatorProps) => {
     };
 
     const nameInput = (
-        <section key="name-input">
-            <Form.Control
-                type="text"
-                value={playerNameInput}
-                onChange={(e) => setPlayerNameInput(e.target.value)}
-                aria-describedby="nameInputHelpBlock"
-            />
+        <>
+            <section className="name-input">
+                <Form.Control
+                    type="text"
+                    value={playerNameInput}
+                    onChange={(e) => setPlayerNameInput(e.target.value)}
+                    aria-describedby="nameInputHelpBlock"
+                />
+                <Button className="add-player-button" variant="outline-primary" onClick={() => handleCreatePlayer({ name: playerNameInput })} disabled={playerNameInput === ""}><PlusCircle/></Button>
+            </section>
             <Form.Text id="nameInputHelpBlock" muted>
-                Enter your character name and pick a dice.
+                Enter your character name.
             </Form.Text>
-        </section>
-    );
-
-    const diceDropDown = (
-        <Dropdown key="dice-drop-down" className="dice-drop-down">
-            <Dropdown.Toggle
-                variant="success"
-                id="dropdown-basic"
-                disabled={playerNameInput === ''}
-            >
-                Pick Dice
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-                {Dices.map((dice) => (
-                    <Dropdown.Item
-                        key={`dice-drop-down-key-${dice}`}
-                        onClick={() =>
-                            handleCreatePlayer({ name: playerNameInput, dice })
-                        }
-                    >
-                        {dice}
-                    </Dropdown.Item>
-                ))}
-            </Dropdown.Menu>
-        </Dropdown>
+        </>
     );
 
     return (
@@ -71,7 +49,6 @@ export const PlayerCreator = (props: PlayerCreatorProps) => {
             </Card.Header>
             <CardBody>
                 {nameInput}
-                {diceDropDown}
             </CardBody>
             <Button variant="outline-primary" onClick={onHide}>
                 Hide player creator

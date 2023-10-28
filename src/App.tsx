@@ -1,20 +1,22 @@
-import { useState } from 'react';
-import { Counter, Player, Setup, Track } from './components';
+import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col, Container, Navbar } from 'react-bootstrap';
+
+import { RootState, AppDispatch } from './main';
+import { Player, Setup, Track } from './components';
+import { addPlayer, removePlayerByName } from './reducer/player';
 
 import './App.css';
 
 function App() {
-    const [players, setPlayers] = useState<Player[]>([]);
+    const {players} = useSelector((state: RootState) => state.player)
+    const dispatch:AppDispatch = useDispatch();
 
     const handleAddPlayer = (newPlayer: Player) => {
-        setPlayers([...players, newPlayer]);
+        dispatch(addPlayer(newPlayer));
     };
 
     const handleRemovePlayer = (playerToRemove: Player) => {
-        setPlayers([
-            ...players.filter((player) => player.name !== playerToRemove.name)
-        ]);
+        dispatch(removePlayerByName(playerToRemove.name));
     };
 
     return (
@@ -25,7 +27,6 @@ function App() {
             <Container>
                 <Row>
                     <Col sm={4}>
-                        <Counter />
                         <Setup
                             players={players}
                             onAddPlayer={handleAddPlayer}

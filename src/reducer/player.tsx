@@ -1,24 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { Player } from '../components'
 
-export const counterSlice = createSlice({
+interface PlayerSlice {
+  players: Player[]
+}
+
+const initState:PlayerSlice = {
+  players: [],
+
+}
+
+export const playerSlice = createSlice({
   name: 'player',
-  initialState: {
-    value: 0,
-  },
+  initialState: initState,
   reducers: {
-    increment: (state) => {
-      state.value += 1
+    addPlayer: (state, action) => {
+      state.players.push(action.payload)
     },
-    decrement: (state) => {
-      state.value -= 1
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
+    removePlayerByName: (state, action) => {
+      state.players = state.players.filter((player) => player.name !== action.payload)
     },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { addPlayer, removePlayerByName} = playerSlice.actions
 
-export default counterSlice.reducer
+export default playerSlice.reducer

@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { PlayerCreator } from '../player-creator';
-import { XLg, PersonAdd } from 'react-bootstrap-icons';
-import { DiceValue } from '../../enums';
-import './setup.css';
 import { Button } from 'react-bootstrap';
+import { XLg, PersonAdd } from 'react-bootstrap-icons';
+
+import { PlayerCreator } from '../player-creator';
+
+import './setup.css';
 
 export type Player = {
     name: string;
-    dice: DiceValue;
 };
 
 export interface SetupBoxProps {
@@ -33,9 +33,6 @@ export const Setup = (props: SetupBoxProps) => {
                     className="player-name-text"
                 >
                     {player.name}
-                </p>
-                <p key={`player-card-dice${player.name}`}>
-                    Dice: {player.dice}
                 </p>
             </div>
             <figure

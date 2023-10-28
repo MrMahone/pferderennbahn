@@ -21,7 +21,7 @@ export const Track = (props: TrackProps) => {
                     {players.map((player) => (
                         <Row>
                             <Card>
-                                <Lane dice={player.dice} />
+                                <Lane dice={6} />
                             </Card>
                         </Row>
                     ))}
