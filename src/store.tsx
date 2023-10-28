@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import playerReducer from './reducer/player';
+import counterReducer from './reducer/player';
 
 export default configureStore({
   reducer: {
-    playerReducer
+    player: counterReducer
   },
 })
