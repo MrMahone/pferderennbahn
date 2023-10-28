@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment } from '../../reducer/player';
 import { AppDispatch, RootState } from '../../main';
 
-import styles from './Counter.module.css'
-
 export const Counter = () => {
   const {value} = useSelector((state: RootState) => state.player)
   const dispatch:AppDispatch = useDispatch()
