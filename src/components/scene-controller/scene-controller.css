@@ -1,6 +1,33 @@
-.scene-controller {
+.scene-controller.card {
+    display: inline-flex;
+
     height: 3em;
     width: 25%;
     margin: -1em 1em -1em 0;
-    
+
+   
+}
+
+.current-scene{
+    font-size: 1.75em;
+    text-align: left;
+    padding-bottom: 0.125em;
+}
+
+
+.chevron {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2em;
+    align-items: center;
+
+    >svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    &:hover>svg {
+        color: white;
+    }
 }
