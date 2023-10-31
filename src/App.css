@@ -38,6 +38,12 @@
     padding: 0.5rem;
 }
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1em;
+}
+
 .read-the-docs {
     color: #888;
 }
