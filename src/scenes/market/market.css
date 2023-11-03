@@ -1,0 +1,12 @@
+.market-scene{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.player-area{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

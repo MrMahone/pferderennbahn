@@ -3,6 +3,8 @@ import { Snack } from '../../types';
 import { Button, Card } from 'react-bootstrap';
 import { PossibleBuys } from '../../utils';
 
+import './market.css';
+
 const CREDITSAMOUNT = 60;
 
 export const Market = () => {
@@ -59,7 +61,7 @@ export const Market = () => {
     );
 
     return (
-        <Card>
+        <Card className='market'>
             <Card.Header>Market</Card.Header>
             <>
                 {renderBasket}

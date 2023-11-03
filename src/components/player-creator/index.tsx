@@ -1,6 +1,6 @@
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
-import { Player } from '..';
+import { Player } from '../../types';
 import { Button, Card, CardBody } from 'react-bootstrap';
 
 import './player-creator.css';

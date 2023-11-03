@@ -3,12 +3,9 @@ import { Button } from 'react-bootstrap';
 import { XLg, PersonAdd } from 'react-bootstrap-icons';
 
 import { PlayerCreator } from '../player-creator';
+import { Player } from '../../types';
 
 import './setup.css';
-
-export type Player = {
-    name: string;
-};
 
 export interface SetupBoxProps {
     players: Player[];
