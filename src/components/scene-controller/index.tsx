@@ -20,14 +20,14 @@ export const SceneController = () => {
      * OnClick handler for the previous scene button.
      */
     const handlePreviesScene = () => {
-        dispatch(previousScence);
+        dispatch(previousScence());
     }
 
     /**
      * OnClick handler for the next scene button.
      */
     const handleNextScene = () => {
-        dispatch(nextScence);
+        dispatch(nextScence());
     }
 
 
