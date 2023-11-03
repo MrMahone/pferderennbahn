@@ -1,3 +1,3 @@
 import { SceneNames } from "../enums";
 
-export const Scenes = [SceneNames.START, SceneNames.GAME, SceneNames.END];
+export const Scenes = [SceneNames.START, SceneNames.MARKET, SceneNames.GAME, SceneNames.END];

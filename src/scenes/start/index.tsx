@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { Row, Col, Container, Navbar } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 
 import { RootState, AppDispatch } from '../../main';
-import { Player, Setup, Track , SceneController} from '../../components';
+import { Player, Setup, Track, NavigationBar} from '../../components';
 import { addPlayer, removePlayerByName } from '../../reducer/player';
 
 import './start.css';
@@ -21,10 +21,7 @@ export const StartScene = () => {
 
     return (
         <>
-            <Navbar className="navbar" bg="primary" data-bs-theme="light">
-                <Navbar.Brand href="#home">Die Pferderennbahn</Navbar.Brand>
-                <SceneController/>
-            </Navbar>
+            <NavigationBar />
             <Container>
                 <Row>
                     <Col sm={4}>
