@@ -1,10 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col, Container, Navbar } from 'react-bootstrap';
 
-import { RootState, AppDispatch } from '../main';
-import { Player, Setup, Track , SceneController} from '../components';
-import { addPlayer, removePlayerByName } from '../reducer/player';
+import { RootState, AppDispatch } from '../../main';
+import { Player, Setup, Track , SceneController} from '../../components';
+import { addPlayer, removePlayerByName } from '../../reducer/player';
 
+import './start.css';
 
 export const StartScene = () => {
     const {players} = useSelector((state: RootState) => state.player)
