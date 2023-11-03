@@ -1,3 +1,21 @@
 .dice-drop-down {
     padding-top: 1rem;
 }
+
+.name-input {
+    display: flex;
+
+    .add-player-button {
+        display: flex;
+        margin-left: 5px;
+
+        > svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        &:hover > svg {
+            color: white;
+        }
+    }
+}
