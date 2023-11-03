@@ -2,14 +2,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Row, Col, Container } from 'react-bootstrap';
 
 import { RootState, AppDispatch } from '../../main';
-import { Player, Setup, Track, NavigationBar} from '../../components';
+import { Player, Setup, Track, NavigationBar } from '../../components';
 import { addPlayer, removePlayerByName } from '../../reducer/player';
 
 import './start.css';
 
 export const StartScene = () => {
-    const {players} = useSelector((state: RootState) => state.player)
-    const dispatch:AppDispatch = useDispatch();
+    const { players } = useSelector((state: RootState) => state.player);
+    const dispatch: AppDispatch = useDispatch();
 
     const handleAddPlayer = (newPlayer: Player) => {
         dispatch(addPlayer(newPlayer));
@@ -38,4 +38,4 @@ export const StartScene = () => {
             </Container>
         </>
     );
-}
+};

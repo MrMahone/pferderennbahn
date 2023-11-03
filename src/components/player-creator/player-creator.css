@@ -9,12 +9,12 @@
         display: flex;
         margin-left: 5px;
 
-        >svg {
+        > svg {
             width: 32px;
             height: 32px;
         }
 
-        &:hover>svg {
+        &:hover > svg {
             color: white;
         }
     }

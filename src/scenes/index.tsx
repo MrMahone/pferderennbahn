@@ -8,22 +8,22 @@ import { MarketScene } from './market';
 export * from './start';
 
 export const SceneManager = () => {
-    const {currentScene} = useSelector((state: RootState) => state.scene)
+    const { currentScene } = useSelector((state: RootState) => state.scene);
 
     const scene = () => {
-        switch(currentScene) {
-            case 0: 
-                return <StartScene/>
-            case 1: 
-                return <MarketScene/>
-            case 2: 
-                return <GameScene/>
-            case 3: 
-                return <EndScene/>
+        switch (currentScene) {
+            case 0:
+                return <StartScene />;
+            case 1:
+                return <MarketScene />;
+            case 2:
+                return <GameScene />;
+            case 3:
+                return <EndScene />;
             default:
-                return <StartScene/>
+                return <StartScene />;
         }
-    }
+    };
 
     return scene();
-}
+};

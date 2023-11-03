@@ -34,7 +34,16 @@ export const PlayerCreator = (props: PlayerCreatorProps) => {
                     onChange={(e) => setPlayerNameInput(e.target.value)}
                     aria-describedby="nameInputHelpBlock"
                 />
-                <Button className="add-player-button" variant="outline-primary" onClick={() => handleCreatePlayer({ name: playerNameInput })} disabled={playerNameInput === ""}><PlusCircle/></Button>
+                <Button
+                    className="add-player-button"
+                    variant="outline-primary"
+                    onClick={() =>
+                        handleCreatePlayer({ name: playerNameInput })
+                    }
+                    disabled={playerNameInput === ''}
+                >
+                    <PlusCircle />
+                </Button>
             </section>
             <Form.Text id="nameInputHelpBlock" muted>
                 Enter your character name.
@@ -47,9 +56,7 @@ export const PlayerCreator = (props: PlayerCreatorProps) => {
             <Card.Header>
                 <h2>Add players</h2>
             </Card.Header>
-            <CardBody>
-                {nameInput}
-            </CardBody>
+            <CardBody>{nameInput}</CardBody>
             <Button variant="outline-primary" onClick={onHide}>
                 Hide player creator
             </Button>
