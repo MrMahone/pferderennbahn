@@ -3,6 +3,7 @@ import { Card, CardBody, Col, Container, Row } from 'react-bootstrap';
 
 import './track.css';
 import { Lane } from './lane';
+import { DiceValue } from '../../enums';
 
 export interface TrackProps {
     players: Player[];

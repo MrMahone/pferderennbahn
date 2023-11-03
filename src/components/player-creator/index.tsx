@@ -45,12 +45,15 @@ export const PlayerCreator = (props: PlayerCreatorProps) => {
                     <PlusCircle />
                 </Button>
             </section>
-            <Form.Text id="nameInputHelpBlock" muted>
-                Enter your character name.
-            </Form.Text>
+            <section>
+                <Form.Text id="nameInputHelpBlock" muted>
+                    Enter your character name.
+                </Form.Text>
+            </section>
         </>
     );
 
+    
     return (
         <Card>
             <Card.Header>
