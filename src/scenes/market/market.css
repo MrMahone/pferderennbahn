@@ -1,5 +1,6 @@
 .market-scene{
     display: flex;
+    height: 1080px;
     flex-direction: column;
     justify-content: space-between;
     

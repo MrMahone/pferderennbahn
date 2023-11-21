@@ -1,4 +1,20 @@
 .market {
-    width: 25%;
-    height: 25%;
+    height: 25em;
+    width: 30em;
+
+    .content {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.market-uneven {
+    height: 25em;
+    width: 30em;
+    rotate:180deg;
+
+    .content {
+        display: flex;
+        flex-direction: row;
+    }
 }

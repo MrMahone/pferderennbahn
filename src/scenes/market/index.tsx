@@ -1,5 +1,5 @@
 import { Card, Container } from 'react-bootstrap';
-import { Market, Track } from '../../components';
+import { Market, MarketInterface, Track } from '../../components';
 import { RootState } from '../../main';
 import { useSelector } from 'react-redux';
 import { Player } from '../../types';
@@ -20,16 +20,16 @@ export const MarketScene = () => {
         }
     });
 
-    const playerBox = (player: Player) => {
-        return (<Market/>)
+    const playerBox = (player: Player, uneven: boolean) => {
+        return (<Market rotate={uneven}/>)
     }
 
     const upperSide = () => {
-        return (<section className="player-area">{unevenPlayers.map((player) => playerBox(player))}</section>)
+        return (<section className="player-area">{unevenPlayers.map((player) => playerBox(player,true))}</section>)
     }
     
     const lowerSide = () => {
-        return (<section className="player-area">{evenPlayers.map((player) => playerBox(player))}</section>)
+        return (<section className="player-area">{evenPlayers.map((player) => playerBox(player,false))}</section>)
     }
 
     //TODO: dont know why spacing between doesn work here, maybe use a grid

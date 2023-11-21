@@ -7,7 +7,13 @@ import './market.css';
 
 const CREDITSAMOUNT = 60;
 
-export const Market = () => {
+export interface MarketInterface {
+    rotate: boolean
+}
+
+export const Market = (props:MarketInterface) => {
+    const {rotate} = props;
+
     const [credits, setCredits] = useState<number>(CREDITSAMOUNT);
     const [basket, setBasket] = useState<Snack[]>([]);
     const availableSnacks = useMemo<Snack[]>(
@@ -60,13 +66,15 @@ export const Market = () => {
         </Card>
     );
 
+    const classname = `market${rotate?`-uneven`:``}`
+
     return (
-        <Card className='market'>
+        <Card className={classname}>
             <Card.Header>Market</Card.Header>
-            <>
+            <Card.Body className='content'>
                 {renderBasket}
                 {renderPossibleSnacks}
-            </>
+            </Card.Body>
         </Card>
     );
 };
