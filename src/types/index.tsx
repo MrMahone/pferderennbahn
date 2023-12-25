@@ -1,2 +1,3 @@
-export * from './snacks';
+export * from './itemstack'; 
 export * from './player';
+export * from './snacks';

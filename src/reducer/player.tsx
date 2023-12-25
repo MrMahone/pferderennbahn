@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Player } from '../components';
+import { Player, Snack } from '../types';
 
 interface PlayerSlice {
     players: Player[];
@@ -18,6 +18,13 @@ export const playerSlice = createSlice({
         },
         removePlayerByName: (state, action) => {
             state.players = state.players.filter(
+                (player) => player.name !== action.payload
+            );
+        },
+        buyItem: (state, action) => {
+            const playerThatBuys = action.payload.player.index;
+
+            state.players[playerThatBuys].basket = [...state.players[playerThatBuys].inventory, action.playload.snack] = state.players.filter(
                 (player) => player.name !== action.payload
             );
         }

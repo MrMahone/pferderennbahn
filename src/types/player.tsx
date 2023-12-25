@@ -1,3 +1,9 @@
+import { ItemStack } from ".";
+
 export type Player = {
-    name: string;
+    index:number,
+    name: string,
+    credits:number,
+    basket:Snacks[]
+    
 };

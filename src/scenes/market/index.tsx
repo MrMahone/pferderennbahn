@@ -9,27 +9,17 @@ import './market.css';
 export const MarketScene = () => {
     const {players} = useSelector((state:RootState) => state.player);
 
-    const evenPlayers: Player[] = [];
-    const unevenPlayers: Player[] = [];
+    const unevenPlayers:Player[] = players.map((player) => !!(player.index%2) ? player : undefined).filter((item): item is Player => !!item);
+    
+    const evenPlayers: Player[] = players.map((player) => !(player.index%2) ? player : undefined).filter((item): item is Player => !!item);
 
-    players.forEach((player, index) => {
-        if(index%2){
-            evenPlayers.push(player)
-        } else {
-            unevenPlayers.push(player);
-        }
-    });
-
-    const playerBox = (player: Player, uneven: boolean) => {
-        return (<Market rotate={uneven}/>)
-    }
 
     const upperSide = () => {
-        return (<section className="player-area">{unevenPlayers.map((player) => playerBox(player,true))}</section>)
+        return (<section className="player-area">{unevenPlayers.map((player:Player) => <Market rotate={!(player.index%2)} cashAmount={player.credits} basket={player.inventory}/>)}</section>)
     }
     
     const lowerSide = () => {
-        return (<section className="player-area">{evenPlayers.map((player) => playerBox(player,false))}</section>)
+        return (<section className="player-area">{evenPlayers.map((player) => <Market rotate={!!(player.index%2)} cashAmount={player.credits} basket={player.inventory}/>)}</section>)
     }
 
     //TODO: dont know why spacing between doesn work here, maybe use a grid

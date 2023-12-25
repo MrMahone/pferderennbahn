@@ -5,6 +5,8 @@ import { Button, Card, CardBody } from 'react-bootstrap';
 
 import './player-creator.css';
 import { PlusCircle } from 'react-bootstrap-icons';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../main';
 
 export interface PlayerCreatorProps {
     onCreatPlayer: (newPlayer: Player) => void;
@@ -12,7 +14,9 @@ export interface PlayerCreatorProps {
 }
 
 export const PlayerCreator = (props: PlayerCreatorProps) => {
+
     const { onCreatPlayer, onHide } = props;
+    const players = useSelector((state:RootState) => state.player.players);
 
     const [playerNameInput, setPlayerNameInput] = useState<string>('');
 
@@ -20,8 +24,14 @@ export const PlayerCreator = (props: PlayerCreatorProps) => {
      * Handler function to create a new player and reset the name input field.
      * @param newPlayer
      */
-    const handleCreatePlayer = (newPlayer: Player) => {
-        onCreatPlayer(newPlayer);
+    const handleCreatePlayer = (newPlayer: Partial<Player>) => {
+        const player:Player = {
+            index: players.length,
+            name:newPlayer.name!,
+            credits:60,
+            inventory:[]
+        }
+        onCreatPlayer(player);
         setPlayerNameInput('');
     };
 
@@ -38,7 +48,7 @@ export const PlayerCreator = (props: PlayerCreatorProps) => {
                     className="add-player-button"
                     variant="outline-primary"
                     onClick={() =>
-                        handleCreatePlayer({ name: playerNameInput })
+                        handleCreatePlayer({name: playerNameInput})
                     }
                     disabled={playerNameInput === ''}
                 >
