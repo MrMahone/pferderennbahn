@@ -5,10 +5,8 @@ import { PossibleBuys } from '../../utils';
 
 import './market.css';
 import { Snacks } from '../../constants';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../main';
-
-const CREDITSAMOUNT = 60;
+import { useDispatch } from 'react-redux';
+import { buyItem, sellItem } from '../../reducer/player';
 
 type ItemStack = {
     item: Snack;
@@ -23,8 +21,8 @@ const bagOfBlubeerrys:ItemStack = {
 console.log(bagOfBlubeerrys);
 
 export interface MarketInterface {
-    rotate: boolean,
     player: Player,
+    rotate: boolean,
 }
 
 export const Market = (props:MarketInterface) => {
@@ -37,34 +35,23 @@ export const Market = (props:MarketInterface) => {
         [player.credits]
     );
 
-    const basket = 
-
     const handleBuySnack = (snack: Snack) => {
-        if (credits > 0) {
-            dispatch(buyItem(player, snack))
-            setBasket([...basket, snack]);
-            setCredits(credits - snack.price);
-            console.log(`Bought: ${snack.name}. Credits left: ${credits}`);
-
-            return null;
-        }
-
-        console.log(`Not enough dineros`);
+        dispatch(buyItem({snack:snack, player}))
+        console.log(`Player: ${player.name} bought: ${snack.name}. Credits left: ${player.credits}`);
     };
 
-    const handleSellSnack = (snack: Snack, index: number) => {
-        // Dispatch
-        setBasket(basket.filter((_s, i: number) => i !== index));
-        setCredits(credits + snack.price);
+    const handleSellSnack = (snack: Snack) => {
+        dispatch(sellItem({snack, player}))
+        console.log(`Player: ${player.name} sold: ${snack.name}. Credits left: ${player.credits}`);
     };
 
     const renderBasket = (
         <Card>
             <Card.Header>Basket {player.credits}</Card.Header>
-            {player.inventory.map((itemStack:ItemStack) => (
+            {player.inventory.map((snack:Snack) => (
                 <Button
-                    key={`basket-snack-${itemStack.item.name}s`}
-                    onClick={() => handleSellSnack(snack, index)} // Dispatch
+                    key={`basket-snack-${snack.name}s`}
+                    onClick={() => handleSellSnack(snack)} // Dispatch
                 >
                     {snack.name}
                 </Button>

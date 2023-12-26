@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Player, Snack } from '../types';
+import { Player } from '../types';
 
 interface PlayerSlice {
     players: Player[];
@@ -24,14 +24,19 @@ export const playerSlice = createSlice({
         buyItem: (state, action) => {
             const playerThatBuys = action.payload.player.index;
 
-            state.players[playerThatBuys].basket = [...state.players[playerThatBuys].inventory, action.playload.snack] = state.players.filter(
-                (player) => player.name !== action.payload
-            );
+            state.players[playerThatBuys].inventory = [...state.players[playerThatBuys].inventory, action.payload.snack];
+            state.players[playerThatBuys].credits = state.players[playerThatBuys].credits - action.payload.snack.price;
+        },
+        sellItem: (state, action) => {
+            const playerThatSells = action.payload.player.index;
+            const indexToRemove = state.players[playerThatSells].inventory.findIndex(action.payload.snack);
+
+            state.players[playerThatSells].inventory.splice(indexToRemove,1);
         }
     }
 });
 
 // Action creators are generated for each case reducer function
-export const { addPlayer, removePlayerByName } = playerSlice.actions;
+export const { addPlayer, removePlayerByName, buyItem, sellItem} = playerSlice.actions;
 
 export default playerSlice.reducer;
