@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Player, Snack } from '../../types';
 import { Button, Card } from 'react-bootstrap';
 import { PossibleBuys } from '../../utils';
@@ -41,19 +41,33 @@ export const Market = (props:MarketInterface) => {
     };
 
     const handleSellSnack = (snack: Snack) => {
-        dispatch(sellItem({snack, player}))
+        dispatch(sellItem({snack:snack, player}))
         console.log(`Player: ${player.name} sold: ${snack.name}. Credits left: ${player.credits}`);
     };
+
+    const basket = ():ItemStack[] => {
+        const temp:ItemStack[] = [];
+
+        player.inventory.forEach((snack:Snack) => {
+            if(!temp.some((stack:ItemStack) => stack.item.name === snack.name)){
+                temp.push({item: snack, amount:1} as ItemStack);
+            } else {
+                const stackIndex = temp.findIndex((stack:ItemStack) => stack.item.name === snack.name);
+                temp[stackIndex].amount++;       
+            }
+        })
+        return temp;
+    }
 
     const renderBasket = (
         <Card>
             <Card.Header>Basket {player.credits}</Card.Header>
-            {player.inventory.map((snack:Snack) => (
+            {basket().map((itemStack:ItemStack) => (
                 <Button
-                    key={`basket-snack-${snack.name}s`}
-                    onClick={() => handleSellSnack(snack)} // Dispatch
+                    key={`${player}-basket-snack-${itemStack.item.name}s`}
+                    onClick={() => handleSellSnack(itemStack.item)}
                 >
-                    {snack.name}
+                    {`${itemStack.item.name} ${itemStack.amount}`}
                 </Button>
             ))}
         </Card>
@@ -77,7 +91,7 @@ export const Market = (props:MarketInterface) => {
 
     return (
         <Card className={classname}>
-            <Card.Header>Market{rotate?"rotate":""}</Card.Header>
+            <Card.Header>Market</Card.Header>
             <Card.Body className='content'>
                 {renderBasket}
                 {renderPossibleSnacks}

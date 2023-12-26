@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import { Player } from '../../types';
 
 import './market.css';
-import player from '../../reducer/player';
 
 export const MarketScene = () => {
     const {players} = useSelector((state:RootState) => state.player);

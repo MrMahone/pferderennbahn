@@ -29,9 +29,11 @@ export const playerSlice = createSlice({
         },
         sellItem: (state, action) => {
             const playerThatSells = action.payload.player.index;
-            const indexToRemove = state.players[playerThatSells].inventory.findIndex(action.payload.snack);
+            console.log("trying to sell:", action.payload.snack.name)
+            console.log(state.players[playerThatSells].inventory.forEach);
+            //const indexToRemove = state.players[playerThatSells].inventory.findIndex();
 
-            state.players[playerThatSells].inventory.splice(indexToRemove,1);
+            //state.players[playerThatSells].inventory.splice(indexToRemove,1);
         }
     }
 });
