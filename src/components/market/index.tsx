@@ -22,11 +22,11 @@ console.log(bagOfBlubeerrys);
 
 export interface MarketInterface {
     player: Player,
-    rotate: boolean,
+    rotate?: boolean,
 }
 
 export const Market = (props:MarketInterface) => {
-    const {rotate, player} = props;
+    const {rotate = false, player} = props;
     const dispatch = useDispatch();
 
     // map that stuff const [basket, setBasket] = useState<(itemStack[])[]>(iventory => itemstack[]);
@@ -77,7 +77,7 @@ export const Market = (props:MarketInterface) => {
 
     return (
         <Card className={classname}>
-            <Card.Header>Market</Card.Header>
+            <Card.Header>Market{rotate?"rotate":""}</Card.Header>
             <Card.Body className='content'>
                 {renderBasket}
                 {renderPossibleSnacks}
